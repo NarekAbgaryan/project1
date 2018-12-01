@@ -26,7 +26,6 @@ var matrix = [
 var side = 35
 var matrix = [];
 matrix = fillMatrix(30, 30)
-console.log(matrix)
 function fillMatrix(n, m) {
     var matrix = []
     for (var i = 0; i < n; i++) {
