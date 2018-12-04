@@ -58,7 +58,7 @@ for (var h = 0; h < 6; h++) {
     var y = Math.floor(Math.random() * 30)
     matrix[y][x] = 4
 }
-for (var h = 0; h < 15; h++) {
+for (var h = 0; h < 20; h++) {
     var x = Math.floor(Math.random() * 30)
     var y = Math.floor(Math.random() * 30)
     matrix[y][x] = 5
@@ -123,7 +123,7 @@ function draw() {
                 fill("blue");
             }
             else if (matrix[y][x] == 5) {
-                fill("chocolate");
+                fill("purple");
             }
             rect(x * side, y * side, side, side)
 
