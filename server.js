@@ -4,15 +4,15 @@ var server = require('http').Server(app);
 var io = require('socket.io')(server);
 app.use(express.static("."));
 app.get('/', function (req, res) {
-   res.redirect('index.html');
+    res.redirect('index.html');
 });
 server.listen(3000);
 
-var Grass = require ("./Grass")
-var Gazan = require ("./Gazan")
-var Xotaker = require ("./Xotaker")
-var Mard = require ("./Mard")
-var Mardaker = require ("./Mardaker")
+var Grass = require("./Grass")
+var Gazan = require("./Gazan")
+var Xotaker = require("./Xotaker")
+var Mard = require("./Mard")
+var Mardaker = require("./Mardaker")
 
 
 /*
@@ -40,8 +40,12 @@ var matrix = [
 ]
 */
 
+// Random = function (arr) {
+//     return arr[Math.floor(Math.random() * arr.length)];
+// }
+
 var side = 35
-var matrix = [];
+matrix = [];
 matrix = fillMatrix(30, 30)
 function fillMatrix(n, m) {
     var matrix = []
@@ -80,11 +84,11 @@ for (var h = 0; h < 20; h++) {
     var y = Math.floor(Math.random() * 30)
     matrix[y][x] = 5
 }
-var grassArr = [];
-var xotakerArr = [];
-var gazanArr = [];
-var mardArr = [];
-var mardakerArr = [];
+ grassArr = [];
+ xotakerArr = [];
+ gazanArr = [];
+ mardArr = [];
+ mardakerArr = [];
 
 for (var y = 0; y < matrix.length; y++) {
     for (var x = 0; x < matrix[y].length; x++) {
@@ -117,62 +121,69 @@ for (var y = 0; y < matrix.length; y++) {
 
 
 function drawServerayin() {
-    
 
-        }
-    
 
-    for (var i in grassArr) {
-        grassArr[i].mult()
+}
+
+
+for (var i in grassArr) {
+    grassArr[i].mult()
+}
+
+for (var i in xotakerArr) {
+    xotakerArr[i].eat()
+
+    xotakerArr[i].move()
+
+    xotakerArr[i].mult()
+    xotakerArr[i].die()
+
+
+}
+
+
+
+for (var i in gazanArr) {
+    gazanArr[i].eat()
+
+    gazanArr[i].move()
+    gazanArr[i].mult()
+    gazanArr[i].die()
+
+}
+
+for (var i in mardArr) {
+    mardArr[i].eat()
+
+    mardArr[i].move()
+
+    mardArr[i].mult()
+
+
+    mardArr[i].die()
+
+
+}
+
+for (var i in mardakerArr) {
+    mardakerArr[i].eat()
+
+    mardakerArr[i].move()
+
+    mardakerArr[i].mult()
+    mardakerArr[i].die()
+
+
+
+}
+io.on('connection', function (socket) {
+    for(var i in matrix){
+      io.sockets.emit("matrix", matrix[i]);
     }
-
-    for (var i in xotakerArr) {
-        xotakerArr[i].eat()
-
-        xotakerArr[i].move()
-
-        xotakerArr[i].mult()
-        xotakerArr[i].die()
-
-
-    }
+});
 
 
 
-    for (var i in gazanArr) {
-        gazanArr[i].eat()
-
-        gazanArr[i].move()
-        gazanArr[i].mult()
-        gazanArr[i].die()
-
-    }
-
-    for (var i in mardArr) {
-        mardArr[i].eat()
-
-        mardArr[i].move()
-
-        mardArr[i].mult()
-
-
-        mardArr[i].die()
-
-
-    }
-
-    for (var i in mardakerArr) {
-        mardakerArr[i].eat()
-
-        mardakerArr[i].move()
-
-        mardakerArr[i].mult()
-        mardakerArr[i].die()
-
-
-
-    }
-
-
+io.sockets.emit("matrix",matrix)
 
 setInterval(drawServerayin, 100)

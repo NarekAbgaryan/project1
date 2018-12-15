@@ -1,5 +1,5 @@
 var LivingCreature = require("./LivingCreature.js")
-module.exports =class Grass extends LivingCreature {
+module.exports = class Grass extends LivingCreature {
     constructor(x, y) {
         super(x, y)
         this.directions = [
@@ -37,13 +37,15 @@ module.exports =class Grass extends LivingCreature {
     }
 
     mult() {
-        var empty = random(this.chooseCell(0))
         this.multiply++
-        if (empty && this.multiply > 3) {
-            var newX = empty[0]
-            var newY = empty[1]
-            matrix[newY][newX] = 1
-            var newGr = new Grass(newX, newY)
+        var empty = this.chooseCell(0)
+        var Newem = empty[Math.floor(Math.random() * empty.length)]
+
+        if (Newem && this.multiply > 3) {
+            var newX = Newem[0]
+            var newY = Newem[1]
+            matrix[/*newY*/Newem][/*newX*/Newem] = 1
+            var newGr = new Grass(/*newX, newY*/Newem, Newem)
             grassArr.push(newGr)
         }
     }

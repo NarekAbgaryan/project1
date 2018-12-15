@@ -1,21 +1,14 @@
 {
-  "name": "project1",
+  "name": "xax",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "main": "Gazan.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/NarekAbgaryan/project1.git"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/NarekAbgaryan/project1/issues"
-  },
-  "homepage": "https://github.com/NarekAbgaryan/project1#readme",
+  "description": "",
   "dependencies": {
     "express": "^4.16.4",
     "socket.io": "^2.2.0"

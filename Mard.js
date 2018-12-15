@@ -1,7 +1,7 @@
 var LivingCreature = require("./LivingCreature.js")
 module.exports = class Mard extends LivingCreature {
     constructor(x, y) {
-        super(x,y)
+        super(x, y)
         this.energy = 4;
     }
 
@@ -24,10 +24,11 @@ module.exports = class Mard extends LivingCreature {
     }
 
     mult() {
-        var empty = random(this.chooseCell(0))
-        if (empty && this.energy > 30) {
-            var newX = empty[0]
-            var newY = empty[1]
+        var empty = this.chooseCell(0)
+        var Newem = empty[Math.floor(Math.random() * empty.length)]
+        if (Newem && this.energy > 30) {
+            var newX = Newem[0]
+            var newY = Newem[1]
             matrix[newY][newX] = 4
             var md = new Mard(newX, newY)
             mardArr.push(md)
@@ -35,11 +36,12 @@ module.exports = class Mard extends LivingCreature {
     }
 
     move() {
-        var empty = random(this.chooseCell(0))
+        var empty = this.chooseCell(0)
+        var Newem = empty[Math.floor(Math.random() * empty.length)]
         this.energy--;
-        if (empty) {
-            var newX = empty[0]
-            var newY = empty[1]
+        if (Newem) {
+            var newX = Newem[0]
+            var newY = Newem[1]
             matrix[newY][newX] = 4
             matrix[this.y][this.x] = 0
 
@@ -49,9 +51,12 @@ module.exports = class Mard extends LivingCreature {
     }
 
     eat() {
-        var food = random(this.chooseCell(1))
-        var food1 = random(this.chooseCell(2))
-        var food2 = random(this.chooseCell(3))
+        var arr = this.chooseCell(1);
+        var food = arr[Math.floor(Math.random() * arr.length)]
+        var arr = this.chooseCell(2);
+        var food1 = arr[Math.floor(Math.random() * arr.length)]
+        var arr = this.chooseCell(3);
+        var food2 = arr[Math.floor(Math.random() * arr.length)]
 
         if (food) {
             var newX = food[0]
@@ -67,7 +72,7 @@ module.exports = class Mard extends LivingCreature {
 
             this.x = newX
             this.y = newY
-            this.energy+=2
+            this.energy += 2
         }
 
         if (food1) {
@@ -104,7 +109,7 @@ module.exports = class Mard extends LivingCreature {
         }
     }
 
-   
+
 
     die() {
         if (this.energy <= 0) {
@@ -116,5 +121,5 @@ module.exports = class Mard extends LivingCreature {
             }
         }
     }
-  
+
 }
