@@ -12,5 +12,13 @@
   "dependencies": {
     "express": "^4.16.4",
     "socket.io": "^2.2.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NarekAbgaryan/project1.git"
+  },
+  "bugs": {
+    "url": "https://github.com/NarekAbgaryan/project1/issues"
+  },
+  "homepage": "https://github.com/NarekAbgaryan/project1#readme"
 }

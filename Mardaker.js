@@ -1,8 +1,9 @@
 var LivingCreature = require("./LivingCreature.js")
 module.exports = class Mardaker extends LivingCreature {
     constructor(x, y) {
-        super(x,y)
+        super(x, y)
         this.energy = 13;
+
         this.directions = [
             [this.x - 1, this.y - 1],
             [this.x, this.y - 1],
@@ -61,6 +62,8 @@ module.exports = class Mardaker extends LivingCreature {
             matrix[newY][newX] = 2
             var mdk = new Mardaker(newX, newY)
             mardakerArr.push(mdk)
+            this.energy = 1
+            MardakeryCnvec++
         }
     }
 
@@ -77,16 +80,16 @@ module.exports = class Mardaker extends LivingCreature {
             this.x = newX
             this.y = newY
         }
-        
+
     }
 
     eat() {
-        var arr = this.chooseCell(1);
+        var arr = this.chooseCell(4);
         var food = arr[Math.floor(Math.random() * arr.length)]
         if (food) {
             var newX = food[0]
             var newY = food[1]
-            matrix[newY][newX] =5
+            matrix[newY][newX] = 5
             matrix[this.y][this.x] = 0
 
             for (var i in mardArr) {
@@ -97,10 +100,11 @@ module.exports = class Mardaker extends LivingCreature {
 
             this.x = newX
             this.y = newY
-            this.energy +=2
+            MardakeryKerav++
+            this.energy += 2
         }
     }
-     
+
     die() {
         if (this.energy <= 0) {
             matrix[this.y][this.x] = 0

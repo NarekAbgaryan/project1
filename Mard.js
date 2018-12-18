@@ -3,6 +3,7 @@ module.exports = class Mard extends LivingCreature {
     constructor(x, y) {
         super(x, y)
         this.energy = 4;
+
     }
 
     getNewDirections() {
@@ -32,6 +33,8 @@ module.exports = class Mard extends LivingCreature {
             matrix[newY][newX] = 4
             var md = new Mard(newX, newY)
             mardArr.push(md)
+            this.energy = 1
+            MardyCnvec++
         }
     }
 
@@ -47,6 +50,7 @@ module.exports = class Mard extends LivingCreature {
 
             this.x = newX
             this.y = newY
+            MardyQaylec++
         }
     }
 
@@ -102,6 +106,7 @@ module.exports = class Mard extends LivingCreature {
                     gazanArr.splice(i, 1)
                 }
             }
+            MardyKerav++
 
             this.x = newX
             this.y = newY

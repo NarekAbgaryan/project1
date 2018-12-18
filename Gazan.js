@@ -3,6 +3,7 @@ module.exports = class Gazan extends LivingCreature {
     constructor(x, y) {
         super(x, y)
         this.energy = 10
+
         this.directions = [
             [this.x - 1, this.y - 1],
             [this.x, this.y - 1],
@@ -63,6 +64,8 @@ module.exports = class Gazan extends LivingCreature {
             matrix[newY][newX] = 3
             var gz = new Gazan(newX, newY)
             gazanArr.push(gz)
+            this.energy = 1
+            GazanCnvec++
         }
     }
 
