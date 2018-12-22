@@ -95,7 +95,7 @@ module.exports = class Xotaker extends LivingCreature {
             for (var i in xotakerArr) {
                 if (this.y == xotakerArr[i].y && this.x == xotakerArr[i].x) {
                     xotakerArr.splice(i, 1);
-                    break;
+                    ;
 
                 }
             }

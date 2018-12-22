@@ -2,7 +2,7 @@ var LivingCreature = require("./LivingCreature.js")
 module.exports = class Gazan extends LivingCreature {
     constructor(x, y) {
         super(x, y)
-        this.energy = 10
+        this.energy = 11
 
         this.directions = [
             [this.x - 1, this.y - 1],

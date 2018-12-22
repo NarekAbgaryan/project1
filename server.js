@@ -173,7 +173,7 @@ function drawServerayin() {
         gazanArr[i].die()
 
     }
-console.log(Cikuyomi)
+
     if (Cikuyomi == -1) {
         for (var i in mardArr) {
             mardArr[i].eat()
